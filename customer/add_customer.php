@@ -4,6 +4,8 @@ require_once("../db/connection.php");
 $errors = [];
 $success = "";
 
+$districts = $conn->query("SELECT id, district FROM district WHERE active='yes' ORDER BY district ASC");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST["title"];
     $firstName = $_POST["first_name"];
@@ -80,15 +82,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="mb-3">
             <label>District</label>
-            <input type="text" name="district" class="form-control" required>
+			<select name="district" class="form-select" required>
+				<option value="">Select District</option>
+				<?php while ($d = $districts->fetch_assoc()): ?>
+					<option value="<?= $d['id'] ?>"><?= htmlspecialchars($d['district']) ?></option>
+				<?php endwhile; ?>
+			</select>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
 
     <script>
-    function validateForm() {
-        return true;
+	function validateForm() {
+    const contactField = document.querySelector('input[name="contact_no"]');
+    const contact = contactField.value.trim();
+
+    const phonePattern = /^[0-9]{10}$/;
+
+    if (!phonePattern.test(contact)) {
+        alert("Please enter a valid 10-digit contact number (numbers only).");
+        contactField.focus();
+        return false;
     }
-    </script>
+
+    return true; 
+}
+</script>
+
+
 </body>
 </html>
