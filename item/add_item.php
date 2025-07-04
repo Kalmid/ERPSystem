@@ -4,7 +4,6 @@ require_once("../db/connection.php");
 $errors = [];
 $success = "";
 
-// Fetch categories
 $category_result = $conn->query("SELECT id, category FROM item_category ORDER BY category ASC");
 $categories = $category_result->fetch_all(MYSQLI_ASSOC);
 
@@ -46,7 +45,7 @@ function fetchSubcategories(categoryId) {
     fetch("get_subcategories.php?category_id=" + categoryId)
         .then(res => res.json())
         .then(data => {
-            console.log("Loaded subcategories:", data); // ✅ Debug
+            console.log("Loaded subcategories:", data); 
             const subCatSelect = document.getElementById("item_subcategory");
             subCatSelect.innerHTML = '<option value="">Select Subcategory</option>';
             data.forEach(sub => {
@@ -67,7 +66,6 @@ window.onload = function () {
         fetchSubcategories(this.value);
     });
 
-    // Load existing selection if POSTed
     const selectedCategory = "<?= $_POST['item_category'] ?? '' ?>";
     const selectedSub = "<?= $_POST['item_subcategory'] ?? '' ?>";
     if (selectedCategory) {
