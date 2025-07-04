@@ -11,7 +11,6 @@ if (!isset($_GET['id'])) {
 
 $item_id = intval($_GET['id']);
 
-// Fetch item details
 $stmt = $conn->prepare("SELECT * FROM item WHERE id = ?");
 $stmt->bind_param("i", $item_id);
 $stmt->execute();
@@ -22,11 +21,9 @@ if (!$item) {
     die("Item not found.");
 }
 
-// Fetch all categories
 $category_result = $conn->query("SELECT id, category FROM item_category ORDER BY category ASC");
 $categories = $category_result->fetch_all(MYSQLI_ASSOC);
 
-// Fetch selected category ID
 $selected_category_id = null;
 $cat_stmt = $conn->prepare("SELECT id FROM item_category WHERE category = ?");
 $cat_stmt->bind_param("s", $item['item_category']);
@@ -37,7 +34,6 @@ if ($cat_result && $cat_result->num_rows > 0) {
 }
 $cat_stmt->close();
 
-// Fetch selected subcategory ID
 $selected_subcategory_id = null;
 $sub_stmt = $conn->prepare("SELECT id FROM item_subcategory WHERE sub_category = ?");
 $sub_stmt->bind_param("s", $item['item_subcategory']);
