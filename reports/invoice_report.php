@@ -50,7 +50,7 @@ $result = $stmt->get_result();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="container mt-5">
-    <h2>Invoice Report</h2>
+    <h2 class="mb-4 text-center">Invoice Report</h2>
 
     <form method="GET" class="row g-3 mb-4">
         <div class="col-auto">
