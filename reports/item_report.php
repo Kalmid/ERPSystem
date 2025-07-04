@@ -21,10 +21,10 @@ $result = $conn->query($sql);
 <html>
 <head>
     <title>Item Report</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body class="container mt-5">
-    <h2>Item Report</h2>
+    <h2 class="mb-4 text-center">Item Report</h2>
 
     <?php if ($result && $result->num_rows > 0): ?>
         <table class="table table-bordered table-striped">
