@@ -9,7 +9,6 @@ $id = $_GET['id'];
 $errors = [];
 $success = "";
 
-// Fetch existing customer
 $stmt = $conn->prepare("SELECT * FROM customer WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -21,7 +20,6 @@ if (!$customer) {
     die("Customer not found.");
 }
 
-// Update if form submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = $_POST["title"];
     $first = $_POST["first_name"];
