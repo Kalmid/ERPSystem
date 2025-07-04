@@ -1,5 +1,4 @@
 <?php
-// get_subcategories.php
 header('Content-Type: application/json');
 require_once("../db/connection.php");
 
