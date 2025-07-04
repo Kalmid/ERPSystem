@@ -87,7 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <script>
     function validateForm() {
-        // You can add JS validation here if needed
         return true;
     }
     </script>
