@@ -50,5 +50,7 @@ $result = $conn->query($sql);
     <?php else: ?>
         <div class="alert alert-warning">No items found.</div>
     <?php endif; ?>
+<a href="../item/list_items.php" class="btn btn-secondary">Back to List</a>
+<br>
 </body>
 </html>
