@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $user = "root";
-$password = ""; // no password usually in XAMPP
-$database = "erp_db"; // your actual DB name
+$password = ""; 
+$database = "erp_db";
 
 $conn = new mysqli($host, $user, $password, $database);
 
