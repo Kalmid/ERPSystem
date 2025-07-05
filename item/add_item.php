@@ -45,7 +45,7 @@ function fetchSubcategories(categoryId) {
     fetch("get_subcategories.php?category_id=" + categoryId)
         .then(res => res.json())
         .then(data => {
-            console.log("Loaded subcategories:", data); 
+            console.log("Loaded subcategories:", data);
             const subCatSelect = document.getElementById("item_subcategory");
             subCatSelect.innerHTML = '<option value="">Select Subcategory</option>';
             data.forEach(sub => {
@@ -88,7 +88,18 @@ window.onload = function () {
 
 </head>
 <body class="container mt-5">
-    <h2>Add New Item</h2>
+<header style="display: flex; justify-content: space-between; padding: 10px 20px; background-color: #f9fafa; border-bottom: 1px solid #ddd;">
+  <nav>
+    <a href="../customer/list_customers.php" style="margin-right: 15px; text-decoration: none; color: #555;">Customers</a>
+    <a href="../item/list_items.php" style="text-decoration: none; color: #555;">Items</a>
+<a href="../reports/item_report.php" style="margin-right: 15px; text-decoration: none; color: #555;">Item Report</a>
+<a href="../reports/invoice_item_report.php" style="margin-right: 15px; text-decoration: none; color: #555;">Invoice Item Report</a>
+<a href="../reports/invoice_report.php" style="margin-right: 15px; text-decoration: none; color: #555;">Invoice Report</a>
+  </nav>
+</header>
+
+	<br>
+    <h2 class="mb-4 text-center">Add New Item</h2>
 
     <?php foreach ($errors as $e): ?>
         <div class="alert alert-danger"><?= htmlspecialchars($e) ?></div>
