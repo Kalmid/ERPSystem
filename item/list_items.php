@@ -22,7 +22,18 @@ $result = $stmt->get_result();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="container mt-5">
-    <h2>All Items</h2>
+<header style="display: flex; justify-content: space-between; padding: 10px 20px; background-color: #f9fafa; border-bottom: 1px solid #ddd;">
+  <nav>
+    <a href="../customer/list_customers.php" style="margin-right: 15px; text-decoration: none; color: #555;">Customers</a>
+    <a href="../item/list_items.php" style="margin-right: 15px; text-decoration: none; color: #555;">Items</a>
+<a href="../reports/item_report.php" style="margin-right: 15px; text-decoration: none; color: #555;">Item Report</a>
+<a href="../reports/invoice_item_report.php" style="margin-right: 15px; text-decoration: none; color: #555;">Invoice Item Report</a>
+<a href="../reports/invoice_report.php" style="margin-right: 15px; text-decoration: none; color: #555;">Invoice Report</a>
+  </nav>
+</header>
+
+	<br>
+    <h2 class="mb-4 text-center">All Items</h2>
     <a href="add_item.php" class="btn btn-success mb-3">+ Add New Item</a>
 
     <form method="GET" class="mb-3">
