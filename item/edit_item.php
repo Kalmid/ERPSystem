@@ -11,6 +11,7 @@ if (!isset($_GET['id'])) {
 
 $item_id = intval($_GET['id']);
 
+// Fetch item details
 $stmt = $conn->prepare("SELECT * FROM item WHERE id = ?");
 $stmt->bind_param("i", $item_id);
 $stmt->execute();
@@ -124,8 +125,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         };
     </script>
 </head>
+<header style="display: flex; justify-content: space-between; padding: 10px 20px; background-color: #f9fafa; border-bottom: 1px solid #ddd;">
+  <nav>
+    <a href="../customer/list_customers.php" style="margin-right: 15px; text-decoration: none; color: #555;">Customers</a>
+    <a href="../item/list_items.php" style="text-decoration: none; color: #555;">Items</a>
+<a href="../reports/item_report.php" style="margin-right: 15px; text-decoration: none; color: #555;">Item Report</a>
+<a href="../reports/invoice_item_report.php" style="margin-right: 15px; text-decoration: none; color: #555;">Invoice Item Report</a>
+<a href="../reports/invoice_report.php" style="margin-right: 15px; text-decoration: none; color: #555;">Invoice Report</a>
+  </nav>
+</header>
+
+	<br>
 <body class="container mt-5">
-    <h2>Edit Item</h2>
+    <h2 class="mb-4 text-center">Edit Item</h2>
 
     <?php if (isset($_GET['updated'])): ?>
         <div class="alert alert-success">Item updated successfully.</div>
