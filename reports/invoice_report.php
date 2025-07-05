@@ -99,6 +99,8 @@ $result = $stmt->get_result();
         <div class="alert alert-warning">No invoices found for the selected date range.</div>
     <?php endif; ?>
 
+<a href="../item/list_items.php" class="btn btn-secondary">Back to List</a>
+<br>
 </body>
 </html>
 
