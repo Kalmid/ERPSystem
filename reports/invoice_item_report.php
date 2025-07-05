@@ -54,6 +54,7 @@ $result = $stmt->get_result();
 </head>
 <body class="container mt-5">
     <h2 class="mb-4 text-center">Invoice Item Report</h2>
+
     <form method="GET" class="row g-3 mb-4">
         <div class="col-md-3">
             <label>From Date:</label>
@@ -98,5 +99,8 @@ $result = $stmt->get_result();
     <?php else: ?>
         <div class="alert alert-warning">No records found.</div>
     <?php endif; ?>
+
+<a href="../item/list_items.php" class="btn btn-secondary">Back to List</a>
+<br>
 </body>
 </html>
